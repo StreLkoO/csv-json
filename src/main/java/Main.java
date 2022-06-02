@@ -17,16 +17,17 @@ public class Main {
         CSVParser csvParser = CSVParser.get();
         List<Employee> staff = csvParser.parseCSV(COLUMNMAPPING, FILENAMECSV);
         JsonWriter jsonWriter = JsonWriter.get();
-        jsonWriter.writeListInJson(staff,CSVTOJSONFILE);
+        jsonWriter.writeListInJson(staff, CSVTOJSONFILE);
 
         XMLParser xmlParser = XMLParser.get();
         List<Employee> staffFromXML = xmlParser.parseXML(FILENAMEXML);
-        jsonWriter.writeListInJson(staffFromXML,XMLTOJSONFILE);
+        jsonWriter.writeListInJson(staffFromXML, XMLTOJSONFILE);
 
+        JsonParser jsonParser = JsonParser.get();
+        List<Employee> staffFromJson = jsonParser.JsonFileToList(XMLTOJSONFILE);
+        System.out.println(staffFromJson);
 
     }
-
-
 
 
 }
