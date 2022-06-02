@@ -37,7 +37,7 @@ public class JsonParser {
 
     }
 
-    private List jsonToList(String json) {
+    private List<Employee> jsonToList(String json) {
         List<Employee> staff = new ArrayList();
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
