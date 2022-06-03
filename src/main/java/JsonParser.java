@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class JsonParser {
@@ -38,7 +39,7 @@ public class JsonParser {
     }
 
     private List<Employee> jsonToList(String json) {
-        List<Employee> staff = new ArrayList();
+        List<Employee> staff = new ArrayList<>();
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         JSONParser jsonParser = new JSONParser();
@@ -55,7 +56,7 @@ public class JsonParser {
         return staff;
     }
 
-    public List JsonFileToList(String path) {
+    public List<Employee> JsonFileToList(String path) {
         String json = readString(path);
         return jsonToList(json);
     }

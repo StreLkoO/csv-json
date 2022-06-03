@@ -20,12 +20,12 @@ public class JsonWriter {
         return instance;
     }
 
-    public void writeListInJson(List list, String path) {
+    public void writeListInJson(List<Employee> list, String path) {
         String json = listToJSON(list);
         writeString(json, path);
     }
 
-    private String listToJSON(List list) {
+    private String listToJSON(List<Employee> list) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         Type listType = new TypeToken<List<Employee>>() {
