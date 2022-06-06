@@ -37,5 +37,6 @@ public class JsonWriterTest {
                 Arguments.of(new ArrayList<>(), "[]"),
                 Arguments.of(null, "null")
         );
+
     }
 }
