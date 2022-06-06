@@ -16,12 +16,22 @@ public class Employee {
         this.age = age;
     }
 
-@Override
+    @Override
     public String toString() {
         return "Employee " + id + ": " + firstName + ", "
                 + lastName + ", " + country + ", " + age;
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Employee) {
+            Employee e = (Employee) o;
+            return this.id == e.id && this.firstName.equals(e.firstName) &&
+                    this.lastName.equals(e.lastName) && this.country.equals(e.country) &&
+                    this.age == e.age;
+        }
+        return false;
+    }
 
 }

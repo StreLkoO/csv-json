@@ -25,7 +25,7 @@ public class JsonParser {
         return instance;
     }
 
-    private String readString(String path) {
+    protected String readString(String path) {
         JSONParser jsonParser = new JSONParser();
         try {
             JSONArray array = (JSONArray) jsonParser.parse(new FileReader(path));
@@ -38,7 +38,7 @@ public class JsonParser {
 
     }
 
-    private List<Employee> jsonToList(String json) {
+    protected List<Employee> jsonToList(String json) {
         List<Employee> staff = new ArrayList<>();
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
@@ -50,7 +50,7 @@ public class JsonParser {
                 Employee e = gson.fromJson(String.valueOf(jsonObject), Employee.class);
                 staff.add(e);
             }
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return staff;

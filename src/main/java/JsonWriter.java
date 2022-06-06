@@ -25,7 +25,7 @@ public class JsonWriter {
         writeString(json, path);
     }
 
-    private String listToJSON(List<Employee> list) {
+    protected String listToJSON(List<Employee> list) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         Type listType = new TypeToken<List<Employee>>() {
@@ -33,7 +33,7 @@ public class JsonWriter {
         return gson.toJson(list, listType);
     }
 
-    private void writeString(String json, String path) {
+    protected void writeString(String json, String path) {
         try (FileWriter fileWriter = new FileWriter(path)) {
             fileWriter.write(json);
             fileWriter.flush();
